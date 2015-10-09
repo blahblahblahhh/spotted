@@ -13,7 +13,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHlTZWZG8iPbFfII-FJ7N0fV3D1x_7Uiw"></script>
   <script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0/src/data.json" type="text/javascript"></script>
   <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0/src/markerclusterer.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
   <script src="/js/app.js" charset="utf-8"></script>
   <script src="/js/script.js" charset="utf-8"></script>
   </head>
@@ -59,6 +59,24 @@
         before disposing of usable or excess materials, food or other items, consider
         <br>
         sharing their location so that someone might take them off your hands.. for free.
+        <br>
+
+        <br>
+
+        <br>
+        <div class='wrapper'>
+          <div class='title'>
+            national average cost of waste removal
+          </div>
+          <div class='chart' id='p1'>
+            <canvas id='c1'></canvas>
+          </div>
+          <div class='footer'>
+            <p>
+              data source: <a href="http://www.homeadvisor.com/cost/cleaning-services/remove-waste/" target="_new">homeadvisor</a>
+            </p>
+          </div>
+        </div>
         <br>
       </div>
       <div ng-hide="token" class="sign-up">
@@ -196,5 +214,6 @@
       </div> -->
     </div>
         <script src="/js/app.js" charset="utf-8"></script>
+        <script src="/js/chart.js" charset="utf-8"></script>
   </body>
 </html>
