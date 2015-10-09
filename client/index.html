@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html ng-app="PostListing">
+  <head>
+    <meta charset="utf-8">
+    <title>Sophie's MEAN App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway+Dots' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-cookies.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" charset="utf-8"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHlTZWZG8iPbFfII-FJ7N0fV3D1x_7Uiw"></script>
+  <script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0/src/data.json" type="text/javascript"></script>
+  <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0/src/markerclusterer.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="/js/app.js" charset="utf-8"></script>
+  <script src="/js/script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- navbar info -->
+    <div class="cover" onclick="toggleSidenav();"></div>
+    <div class="hamburger" id="hamburger" onclick="toggleSidenav();">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav>
+      <div class="logo">
+        <img src="http://lorempixel.com/128/128/animals/"/>
+        <br>
+        Spotted!
+      </div>
+      <div class="links">
+        <a class="active" href="#home">Home</a>
+        <a href="#concept">Concept</a>
+        <a href="#spotted">Up for grabs</a>
+        <a href="#">Spot something?</a>
+      </div>
+      <footer>
+        <p>website by <a href="http://sophieadams.me/" target="new">Sophie Adams</a></p>
+      </footer>
+    </nav>
+    <!-- navbar end -->
+    <!-- content -->
+    <div class="main" ng-controller='UsersController'>
+      <section class="home">
+        <h1>spotted</h1>
+      </section>
+    <section>
+      <div class="meta-information">
+          {{ welcome }}
+      </div>
+      <div class="concept" id="concept" style="text-align: center;">
+        concept:
+        <br>
+        spotted is a place to save peishable goods from going to waste.
+        <br>
+        before disposing of usable or excess materials, food or other items, consider
+        <br>
+        sharing their location so that someone might take them off your hands.. for free.
+        <br>
+      </div>
+      <div ng-hide="token" class="sign-up">
+        <h3>Sign Up:</h3>
+        <form ng-submit="createUser()">
+          <input type="text" ng-model="newUser.username" placeholder="...username">
+          <input type="password" ng-model="newUser.password" placeholder="...password">
+          <input type="submit">
+        </form>
+      </div>
+
+      <div ng-hide="token" class="log-in">
+        <h3>log in:</h3>
+        <form ng-submit="obtainToken()">
+          <input type="text" ng-model="logInUser.username" placeholder="...username">
+          <input type="password" ng-model="logInUser.password" placeholder="...password">
+          <input type="submit">
+        </form>
+      </div>
+
+      <br>
+
+      <button type="button" ng-show="token" ng-click="logOut()" name="button">log out</button>
+
+      <div ng-show="token" class="new-post">
+        <h3>new listing:</h3>
+        <form ng-submit="createPost()">
+          <input ng-model="newPost.item" type="text" placeholder="post title">
+
+          <ul>
+            <li ng-repeat="detail in newPost.details">
+              <input type="text" ng-model="detail.name" placeholder="name">
+              <input type="number" ng-model="detail.age" placeholder="age">
+              <input type="text" ng-model="detail.info" placeholder="info">
+            </li>
+            <li>
+              <span id="findMe">find me</span>
+            </li>
+            <li ng-repeat="geoindex in newPost.geoindex">
+                  <input ng-model="geoindex.lat" type="text" placeholder="lat" id="lat" required="yes" aria-required="true">
+                  <input ng-model="geoindex.lon" type="text" placeholder="lon" id="lon" required="yes" aria-required="true">
+
+            </li>
+
+              <!-- <input type="text" ng-model="detail.etc" placeholder="Bio!"> -->
+
+              <!-- <button type="button" ng-click="addPostLocation()"></button> -->
+            </li>
+          </ul>
+
+          <input type="submit">
+        </form>
+      </div>
+    </section>
+      <section id="spotted">
+        <h1 style="text-align: center">
+          instead of paying for waste pickup, perhaps there is someone who might be looking
+          <br>
+           for exactly what you're getting rid of.
+        </h1>
+        <div id="map"></div>
+      </section>
+
+      <div style="display: none">
+<!--
+      {{ post.item }} <button type="button" ng-click='removePost(post)' name="button">ByBye</button>
+      <ul>
+        <li ng-repeat="detail in post.details">
+          <br>
+          {{ detail.name }}
+          <br>
+          {{ detail.age }}
+          <br>
+          {{ detail.info }}
+        </li>
+        <li ng-repeat="geoindex in post.geoindex">
+          {{ geoindex.lat }}
+          <br>
+          {{ geoindex.lon }}
+          <br>
+        </li>
+      </ul> -->
+
+      <h1>all available goods:</h1>
+
+        <input type="text" name="searchBox" placeholder="search" ng-model="searchQuery">
+        <div ng-repeat="post in posts | filter:searchQuery | orderBy:orderByField:reverse" ng-show="token">
+          {{ post.item }} <button type="button" ng-click='removePost(post)' name="button">ByBye</button>
+          <ul>
+            <li ng-repeat="detail in post.details">
+              <br>
+              {{ detail.name }}
+              <br>
+              {{ detail.age }}
+              <br>
+              {{ detail.info }}
+            </li>
+            <li ng-repeat="geoindex in post.geoindex">
+              {{ geoindex.lat }}
+              <br>
+              {{ geoindex.lon }}
+              <br>
+            </li>
+          </ul>
+
+        </div>
+      <!-- <div ng-repeat="user in users " ng-show="token">
+        <div class="username"><h4 class="title">{{ user.username }}</h4></div>
+        <ul class="animal-list">
+          <li ng-repeat="post in user.posts | filter:searchQuery | orderBy:orderByField:reverse">
+          <p>
+            <div class="animal-name"><h1 class="animal-header">{{ post.topic }}</h1></div>
+            <ul class="details">
+              <li ng-repeat="detail in post.details">
+                <br>
+                {{ detail.age }}
+                <br>
+                {{ detail.contact }}
+                <br>
+                {{ detail.number }}
+                <br>
+                {{ detail.emergency }}
+                <br>
+                {{ detail.allergy }}
+                <br>
+                {{ detail.other }}
+                <br>
+                {{ detail.etc }}
+                <br>
+              </li>
+            </ul>
+          </p>
+        </li>
+        </ul>
+      </div> -->
+    </div>
+        <script src="/js/app.js" charset="utf-8"></script>
+  </body>
+</html>
