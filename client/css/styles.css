@@ -11,15 +11,18 @@ html, body {
 }
 
 html {
-    background: -webkit-linear-gradient(#d58936, #a44200, #69140e, #3c1518); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#d58936, #a44200, #69140e, #3c1518); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#d58936, #a44200, #69140e, #3c1518); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#d58936, #a44200, #69140e, #3c1518); /* Standard syntax (must be last) */
     min-height: 100%;
 }
 
 h1 {
   font-weight: 200;
+}
+
+h1.insetshadow {
+  color: #202020;
+  /*background-color: #2d2d2d;*/
+  letter-spacing: .1em;
+  text-shadow: -1px -1px 1px #111111, 2px 2px 1px #363636;
 }
 /*#goat{
   position: absolute;
@@ -30,14 +33,49 @@ h1 {
 
 #map {
   height: 500px;
-  width:  80%;
+  width:  90%;
   margin: 0 auto;
+  border-radius: 25px;
+  border: 2px solid #FFA824;
+}
+
+.spottedList {
+  height: 250px;
+  width: 250px;
+  display: inline-block;
+  margin: 10px;
 }
 
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
+.averageList {
+  list-style-type: none;
+  padding: 0;
+}
+.averageList li {
+  display: inline-block;
+  height: 130px;
+  width: 130px;
+  vertical-align: middle;
+  padding-top: 45px;
+}
+.averageListInfo {
+  background-color: #cccc00;
+  border-radius: 50%;
+}
+.averageList span {
+  position: relative;
+  border-radius: 10px;
+  background-color: yellow;
+  z-index: 999;
+  font-size: 1.2em;
+  bottom: -20px;
+}
+
+/* --------------navigation --------------------*/
 .hamburger {
   position: fixed;
   z-index: 9999;
@@ -144,6 +182,7 @@ section {
   /*line-height: 100vh;*/
   padding-left: 10%;
   padding-right: 10%;
+  text-align: center;
 }
 section h1 {
   font-size: 1.75em;
@@ -152,19 +191,20 @@ section h1, section p {
   margin: 0;
 }
 section:nth-child(1) {
-  /*background-color: #d58936;*/
+  background-color: #d58936;
   /*color: */
   font-family: Raleway Dots;
 }
 section:nth-child(2) {
-  /*background-color: #a44200;*/
+  background-color: #a44200;
+  height: 100%;
 }
 section:nth-child(3) {
-  /*background-color: #69140e;*/
-  height: 150vh;
+  background-color: #69140e;
+  height: 100%;
 }
 section:nth-child(4) {
-  /*background-color: #3c1518;*/
+  background-color: #3c1518;
 }
 
 .main {
@@ -192,7 +232,6 @@ section:nth-child(4) {
   0% { opacity: 0; transform: translateX(-200px);}
   100% { opacity: 1; transform: translate(0);}
 }
-
 
 input:focus::-webkit-input-placeholder {
     color:transparent;
@@ -254,4 +293,68 @@ p {
   padding: 5px;
   text-align: left;
   font-size: 0.5em;
+}
+/* ------------------------------sign up & login forms -------------------- */
+
+.input-container {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  max-width: 750px;
+  border: none;
+}
+
+.input-container h2 {
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+form {
+  background: #7e7e7e;
+  border-radius: 25px;
+  opacity: 0.8;
+  border: none;
+  margin: 0 auto;
+  text-align: center;
+}
+
+fieldset {
+  border: none;
+}
+
+.input-container p input, select {
+  background: #545454;
+  border: 1px solid transparent;
+  color: #f8f8f8;
+  display: inline-block;
+  width: 85%;
+  outline: 0;
+  text-decoration: none;
+  max-width: 550px;
+}
+
+.input-container select {
+  width: 95%;
+}
+
+.input-container input[type=submit]:focus {
+  background: #3f3f3f;
+  border: none;
+  border-bottom: 2px solid lightseagreen;
+}
+
+.input-container input[type=submit] {
+  background: #3f3f3f;
+  border: none;
+  /*margin-right: 70px;*/
+  color: #f8f8f8;
+  display: inline-block;
+  outline: 0;
+  /*padding: 14px 20px;*/
+  overflow: hidden;
+  text-transform: uppercase;
+  transition: ease .15s;
+}
+.searchBox {
+  border-radius: 25px;
 }

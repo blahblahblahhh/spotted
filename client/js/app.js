@@ -11,6 +11,15 @@ angular.module('PostListing')
     // $scope.posts = [];
     $scope.newPost = {item: '', details:[{}], geoindex:[{}]};
 
+    // trying to get angular and jquery to play nice
+  //   $scope.setFormDirty = function(){
+  //   $scope.myForm.$setDirty();
+  // };
+  //
+  //   $scope.setInputDirty = function() {
+  //   $scope.myForm.lat.$setDirty();
+  // };
+
     $scope.getUsers = function(){
       $http.get('/api/users').then(function(response){
         $scope.users = response.data;
@@ -32,7 +41,7 @@ angular.module('PostListing')
         headers: {
           token: $scope.token
         },
-        data: $scope.newPost
+        data: $scope.newPost,
       }).then(function(response){
         console.log(response.data)
         $scope.getUsers();
@@ -54,9 +63,9 @@ angular.module('PostListing')
   //   });
   // };
 
-    $scope.addPostLocation = function(){
-    $scope.newPost.details.push({})
-    }
+    // $scope.addPostLocation = function(){
+    // $scope.newPost.details.push({})
+    // }
 
     $scope.obtainToken = function(){
       $http.post("/api/users/authentication_token", $scope.logInUser).then(function(response){
@@ -81,6 +90,10 @@ angular.module('PostListing')
         console.log('... it is gone');
       })
     };
+    // angular
+    // $scope.addText = function(){
+    //   $scope.lat = $('#latField').value;
+    //   }
 
     $scope.token = $cookies.get('token');
 

@@ -15,9 +15,10 @@ var foundYou = document.getElementById("findMe");
     getPos = function () {
         navigator.geolocation.getCurrentPosition(function (position) {
             var coords = position.coords;
-            latElement.value = coords.latitude;
-            lonElement.value = coords.longitude;
+            latElement.innerHTML = coords.latitude;
+            lonElement.innerHTML = coords.longitude;
             foundYou.innerHTML = 'found you!';
+            console.log(latElement.value);
             setTimeout(getPos, 5000);
         },function (error){
             setTimeout(getPos, 5000);
@@ -51,7 +52,8 @@ $("nav").find("a").click(function(e) {
 $(document).ready(function() {
 
   $("#findMe").click(function(){
-      alert(" was clicked.");
+      alert("LOC CLICKED");
+      // $(".latInput").hide();
       findSpot();
   });
 
@@ -91,8 +93,8 @@ $(document).ready(function() {
                         map: map,
                         title: 'Click Me ' + i,
                         html: '<h3>' + obj[i].item + '</h3>' +
-                        '<b>thing:</b> <em>' + obj[i].details[0].name + '</em> <br>' +
-                        '<b>spotted:</b> <em>' + obj[i].details[0].age + ' hr ago</em> <br>' +
+                        '<b>type of item:</b> <em>' + obj[i].details[0].name + '</em> <br>' +
+                        '<b>must be gone by:</b> <em>' + obj[i].details[0].age + '</em> <br>' +
                         '<b>info:</b> <em>' + obj[i].details[0].info + '</em>'
                     });
                     // markerArray.push(marker.position);
@@ -145,5 +147,11 @@ $(document).ready(function() {
     //
     //
     //
+
+    $('#createNew').click(function(){
+      var latVal = $('#lat').val();
+      var lonVal = $('#lon').val();
+      alert(latVal + lonVal)
+    })
 
 });

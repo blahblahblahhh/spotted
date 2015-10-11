@@ -14,7 +14,7 @@ var UserSchema = new mongoose.Schema({
         details: [
         {
           name: {type: String},
-          age: {type: Number},
+          age: {type: String},
           info: {type: String}
         }
       ],
