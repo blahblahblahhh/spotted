@@ -8,6 +8,10 @@ html, body {
   /*font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;*/
   font-family: Quicksand;
   font-weight: 100;
+  background: -webkit-linear-gradient(left top, #d58936, #a44200, #69140e, #3c1518); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right,#d58936, #a44200, #69140e, #3c1518); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right,#d58936, #a44200, #69140e, #3c1518); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #d58936, #a44200, #69140e, #3c1518); /* Standard syntax */
 }
 
 html {
@@ -222,20 +226,20 @@ section h1, section p {
   margin: 0;
 }
 section:nth-child(1) {
-  background-color: #d58936;
+  /*background-color: #d58936;*/
   /*color: */
   font-family: Raleway Dots;
 }
 section:nth-child(2) {
-  background-color: #a44200;
+  /*background-color: #a44200;*/
   height: 110vh;
 }
 section:nth-child(3) {
-  background-color: #69140e;
+  /*background-color: #69140e;*/
   height: 100%;
 }
 section:nth-child(4) {
-  background-color: #3c1518;
+  /*background-color: #3c1518;*/
   height: 100%;
 }
 
