@@ -91,7 +91,7 @@
 
         <br>
 
-        <h2>join us today</h2>
+        <br>
       </div>
       <ul style="padding: 0;">
         <li>
@@ -130,7 +130,14 @@
       </div>
     </li>
     <li>
-      <button type="button" ng-show="token" ng-click="logOut()" name="button">log out</button>
+      <button type="button" ng-show="token" ng-click="logOut()" name="button" class="logOutButton"><h1 class="insetshadow">log out</h1></button>
+      <br>
+
+      <br>
+      <div class="logOut" ng-show="token"></div>
+
+      <br>
+      <h2>join us today</h2>
     </LI>
   </UL>
     </section>
@@ -221,8 +228,8 @@
         </li>
       </ul> -->
       <h1 class="insetshadow">all available goods:</h1>
+      <br>
       <div class="input-container">
-      <fieldset class="user-fieldset">
         <p id="first-input-wrap">
         <input type="text" name="searchBox" class="searchBox" placeholder="enter search terms here" ng-model="searchQuery">
       </p>
