@@ -2,7 +2,7 @@
 <html ng-app="PostListing">
   <head>
     <meta charset="utf-8">
-    <title>Sophie's MEAN App</title>
+    <title>SPOTTED // SPOTTED // SPOTTED // SPOTTED </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="/css/styles.css">
   <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
@@ -35,7 +35,7 @@
         <a class="active" href="#home">Home</a>
         <a href="#concept">Concept</a>
         <a href="#spotted">Spot & contribute</a>
-        <a href="#">View all</a>
+        <a href="#" ng-show="token">View all</a>
       </div>
       <footer>
         <p>website by <a href="http://sophieadams.me/" target="new">Sophie Adams</a></p>
@@ -66,6 +66,11 @@
         <br>
 
         <br>
+
+        <br>
+
+        <br>
+
         <ul class="averageList">
           <li class="averageListInfo">
             AVG W WASTE REMOVAL
@@ -85,17 +90,11 @@
         <br>
 
         <br>
-        <h1 class="insetshadow">help save the planet & feed the hungry!</h1>
-        <br>
-        <br>
-        instead of paying for waste pickup, perhaps there is someone who might be looking
-        <br>
-         for exactly what you're getting rid of.
-        <br>
+
         <h2>join us today</h2>
       </div>
       <ul style="padding: 0;">
-        <li style="display: inline-block; width: 25%;">
+        <li>
       <div ng-hide="token" class="input-container">
         <h3 class="signup-info">sign up:</h3>
         <form name="form" ng-submit="createUser()">
@@ -111,7 +110,10 @@
         </form>
       </div>
     </li>
-    <li style="display: inline-block; width: 25%;">
+    <br>
+
+    <br>
+    <li>
       <div ng-hide="token" class="input-container">
         <h3 class="signup-info">log in:</h3>
         <form ng-submit="obtainToken()">
@@ -136,12 +138,18 @@
       <section id="spotted">
         <h1 class="insetshadow">recently listed</h1>
           <br>
-
+          <br>
+          instead of paying for waste pickup, perhaps there is someone who might be looking
+          <br>
+           for exactly what you're getting rid of.
+          <br>
           <br>
         <div id="map"></div>
           <br>
 
           <br>
+
+          <h1 class="insetshadow">help save the planet & feed the hungry!</h1>
             <div ng-show="token" class="input-container">
               <h3 class="signup-info">new listing:</h3>
               <form ng-submit="createPost()" name="myForm">
@@ -192,7 +200,7 @@
             <br>
 
       </section>
-      <section>
+      <section ng-show="token">
       <div>
 <!--
       {{ post.item }} <button type="button" ng-click='removePost(post)' name="button">ByBye</button>
@@ -212,7 +220,7 @@
           <br>
         </li>
       </ul> -->
-      <h1>all available goods:</h1>
+      <h1 class="insetshadow">all available goods:</h1>
       <div class="input-container">
       <fieldset class="user-fieldset">
         <p id="first-input-wrap">
@@ -222,23 +230,27 @@
     </div>
         <br>
         <div ng-repeat="post in posts | filter:searchQuery | orderBy:orderByField:reverse" class="spottedList">
-          {{ post.item }} <button type="button" ng-click='removePost(post)' name="button">ByBye</button>
+
+          <div class="allGoods">
+          <h2>{{ post.item }}</h2>
+           <button type="button" ng-click='removePost(post)' name="button" class="redeemed">REDEEMED<br><b class="small">(OWNER ONLY)</b></button>
           <ul>
             <li ng-repeat="detail in post.details" style="display: inline-block;">
               <br>
-              {{ detail.name }}
+              available: {{ detail.name }}
               <br>
-              {{ detail.age }}
+              must be retrieved by: {{ detail.age }}
               <br>
-              {{ detail.info }}
+              details: {{ detail.info }}
             </li>
-            <li ng-repeat="geoindex in post.geoindex">
+            <!-- <li ng-repeat="geoindex in post.geoindex">
               {{ geoindex.lat }}
               <br>
               {{ geoindex.lon }}
               <br>
-            </li>
+            </li> -->
           </ul>
+        </div>
 
         </div>
       <!-- <div ng-repeat="user in users " ng-show="token">
