@@ -7,13 +7,6 @@ var express       =     require('express'),
 // my app object
 var app = express();
 
-var port = process.env.PORT || 8080;
-
-app.listen(port, function(){
-  console.log("...please work");
-
-});
-
 // database
 mongoose.connect('mongodb://localhost/food_database');
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/food_database');
@@ -41,4 +34,11 @@ app.use('/api/posts', PostsController);
 // lisening
 app.listen(8080, function(){
   console.log("you are online")
+});
+
+var port = process.env.PORT || 8080;
+
+app.listen(port, function(){
+  console.log("...please work");
+
 });
