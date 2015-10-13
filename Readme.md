@@ -18,7 +18,7 @@ Each marker on the map represents available goods. Sign up to add your own items
   * Simply log in, search for the specific post, and mark that it has been redeemed.
 
 *I want to use this app on my phone.*
-  * MC is responsive and will work on your phone/tablet!
+  * Spotted! is responsive and will work on your phone/tablet!
 
 ## Technologies used
 
