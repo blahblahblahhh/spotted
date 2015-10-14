@@ -8,8 +8,8 @@ var express       =     require('express'),
 var app = express();
 
 // database
-mongoose.connect('mongodb://localhost/food_database');
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/food_database');
+// mongoose.connect('mongodb://localhost/food_database');
+// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/food_database');
 // server logging
 app.use(morgan('dev'));
 
@@ -32,9 +32,9 @@ var PostsController = require('./server/controllers/posts');
 app.use('/api/posts', PostsController);
 
 // lisening
-app.listen(8080, function(){
-  console.log("you are online")
-});
+// app.listen(8080, function(){
+//   console.log("you are online")
+// });
 
 var port = process.env.PORT || 8080;
 

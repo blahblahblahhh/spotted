@@ -52,10 +52,8 @@
 
       <!-- concept -->
     <section>
-      <!-- <div class="meta-information">
-          {{ welcome }}
-      </div> -->
       <div class="concept" id="concept" style="text-align: center;">
+          <hr>
         <h1 class="insetshadow">concept</h1>
         <br>
         spotted is a place to save peishable goods from going to waste.
@@ -140,9 +138,13 @@
       <h2>join us today</h2>
     </LI>
   </UL>
+  <hr>
     </section>
 
       <section id="spotted">
+        <br>
+        <br>
+        <br>
         <h1 class="insetshadow">recently listed</h1>
           <br>
           <br>
@@ -182,6 +184,10 @@
                         please copy and paste your location into the appropriate fields:
                       </small>
                       <hr>
+                      click the map to select a location
+                      <br>
+                      or
+                      <br>
                         <big>
                           <span id="findMe">locate me!</span>
                         </big>
@@ -194,10 +200,6 @@
                         <div id="lon" class="averageListInfo" style="display: inline-block">LON</div> > <input ng-model="geoindex.lon" type="text" placeholder="LON HERE" name="lon" required="yes" aria-required="true" required>
                       </p>
                   </li>
-
-                    <!-- <input type="text" ng-model="detail.etc" placeholder="Bio!"> -->
-
-                    <!-- <button type="button" ng-click="addPostLocation()"></button> -->
                   </li>
                 </ul>
                 <input ng-click="addText()" type="submit" class="submit">
@@ -205,7 +207,7 @@
               </form>
             </div>
             <br>
-
+            <hr>
       </section>
       <section ng-show="token">
       <div>
@@ -230,10 +232,10 @@
       <h1 class="insetshadow">all available goods:</h1>
       <br>
       <div class="input-container">
-        <p id="first-input-wrap">
+        <!-- <p id="first-input-wrap"> -->
         <input type="text" name="searchBox" class="searchBox" placeholder="enter search terms here" ng-model="searchQuery">
-      </p>
-    </fieldset>
+      <!-- </p> -->
+    <!-- </fieldset> -->
     </div>
         <br>
         <div ng-repeat="post in posts | filter:searchQuery | orderBy:orderByField:reverse" class="spottedList">
@@ -260,35 +262,6 @@
         </div>
 
         </div>
-      <!-- <div ng-repeat="user in users " ng-show="token">
-        <div class="username"><h4 class="title">{{ user.username }}</h4></div>
-        <ul class="animal-list">
-          <li ng-repeat="post in user.posts | filter:searchQuery | orderBy:orderByField:reverse">
-          <p>
-            <div class="animal-name"><h1 class="animal-header">{{ post.topic }}</h1></div>
-            <ul class="details">
-              <li ng-repeat="detail in post.details">
-                <br>
-                {{ detail.age }}
-                <br>
-                {{ detail.contact }}
-                <br>
-                {{ detail.number }}
-                <br>
-                {{ detail.emergency }}
-                <br>
-                {{ detail.allergy }}
-                <br>
-                {{ detail.other }}
-                <br>
-                {{ detail.etc }}
-                <br>
-              </li>
-            </ul>
-          </p>
-        </li>
-        </ul>
-      </div> -->
     </div>
   </section>
         <!-- <script src="/js/app.js" charset="utf-8"></script> -->

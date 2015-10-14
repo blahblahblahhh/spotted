@@ -272,6 +272,10 @@ section:nth-child(4) {
      background-position: center;
    }
 
+   hr {
+     display: none;
+   }
+
  }
 
 .main {
@@ -423,6 +427,56 @@ fieldset {
   transition: ease .15s;
 }
 .searchBox {
-  border-radius: 25px;
-  font-size: 1em;
+  border: 0px;
+  padding: 10px;
+  font-size: 30px;
+  width: 100%;
+  font-style: italic;
+  outline: none;
+  background-color: #545454;
+  border-bottom: 3px solid black;
+  background: transparent;
+}
+.searchBox input[type="text"] {
+  border: 0;
+  border-bottom: 3px solid grey;
+}
+.searchBox input[type="text"]:focus {
+  border: 0;
+  border-bottom: 3px solid black;
+}
+
+/*hr {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  text-align: center;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  border: 0;
+  background: linear-gradient(90deg, #209cdf 0%, #b320df 50%, #209cdf 100%);
+  animation: scroll 3s linear infinite;
+}
+
+@keyframes scroll {
+  100% {
+    background-position: 500px 0;
+  }
+}*/
+hr {
+  width: 100%;
+  height: 30px;
+  border-style: solid;
+  border-color: hsla(0, 0%, 75%, 0.9);
+  border-width: 1px 0 0 0;
+  border-radius: 15px;
+}
+hr:before {
+  display: block;
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: hsla(0, 0%, 75%, 0.9);
+  border-width: 0 0 1px 0;
+  border-radius: 15px;
 }

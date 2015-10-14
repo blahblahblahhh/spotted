@@ -90,6 +90,7 @@ $(document).ready(function() {
                     // marker content
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(obj[i].geoindex[0].lat, obj[i].geoindex[0].lon),
+                        icon: new google.maps.MarkerImage('http://i.imgur.com/kF3o2sV.png'),
                         map: map,
                         title: 'Click Me ' + i,
                         html: '<h3>' + obj[i].item + '</h3>' +
@@ -136,7 +137,11 @@ $(document).ready(function() {
       // google.maps.event.trigger(hi, 'resize');
       //trying to make the map auto refresh every x to obtain new markers
       google.maps.event.addListener(map, 'click', function( event ){
-  alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
+        var latElement = document.getElementById("lat");
+        var lonElement = document.getElementById("lon");
+        latElement.innerHTML = event.latLng.lat();
+        lonElement.innerHTML = event.latLng.lng();
+  // alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lat() );
 });
     }
 
