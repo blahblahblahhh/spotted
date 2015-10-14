@@ -140,7 +140,7 @@ nav {
           transition: transform 0.3s;
 }
 nav .logo {
-  margin: 12vh 0;
+  margin: 25% 0;
   text-align: center;
 }
 nav .logo img {
@@ -235,7 +235,7 @@ section:nth-child(1) {
 }
 section:nth-child(2) {
   /*background-color: #a44200;*/
-  height: 110vh;
+  height: 110%;
 }
 section:nth-child(3) {
   /*background-color: #69140e;*/
