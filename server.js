@@ -9,7 +9,7 @@ var app = express();
 
 // database
 // mongoose.connect('mongodb://localhost/food_database');
-// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/food_database');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/food_database');
 // server logging
 app.use(morgan('dev'));
 
