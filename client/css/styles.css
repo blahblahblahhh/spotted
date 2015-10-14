@@ -133,7 +133,7 @@ nav {
   background-color: white;
   display: inline-block;
   position: fixed;
-  height: 100vh;
+  height: 100%;
   width: 225px;
   left: -225px;
   -webkit-transition: -webkit-transform 0.3s;
@@ -182,7 +182,7 @@ nav footer p {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 5000;
   -webkit-transition: background-color .3s, -webkit-transform 0.3s;
           transition: background-color .3s, transform 0.3s;
@@ -205,15 +205,15 @@ nav, .main, .hamburger, .cover {
 
 .home {
  color: white;
- height: 100vh;
- line-height: 100vh;
+ height: 100%;
+ line-height: 100%;
  text-align: center;
  font-size: 1.75em;
  margin: auto 0;
 }
 section {
   color: black;
-  height: 100vh;
+  height: 100%;
   /*line-height: 100vh;*/
   padding-left: 10%;
   padding-right: 10%;
@@ -228,6 +228,9 @@ section h1, section p {
 section:nth-child(1) {
   /*background-color: #d58936;*/
   /*color: */
+  height: 500px;
+  padding-top: 25%;
+  padding-bottom: 30%;
   font-family: Raleway Dots;
 }
 section:nth-child(2) {
@@ -267,7 +270,7 @@ section:nth-child(4) {
      background-color: #3c1518;
      height: 100%;
    }
-   
+
    .home {
      height: 100%;
    }
