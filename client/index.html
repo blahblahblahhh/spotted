@@ -159,24 +159,24 @@
           <br>
 
           <h1 class="insetshadow">help save the planet & feed the hungry!</h1>
-            <div ng-show="token" class="input-container">
+            <div ng-show="token">
               <h3 class="signup-info">new listing:</h3>
               <form ng-submit="createPost()" name="myForm">
-                  <fieldset class="user-fieldset">
-                <p id="first-input-wrap">
-                <input ng-model="newPost.item" type="text" placeholder="post title">
-              </p>
+                  <!-- <fieldset class="user-fieldset"> -->
+                <!-- <p id="first-input-wrap"> -->
+                <input class="searchBox" ng-model="newPost.item" type="text" placeholder="post title">
+              <!-- </p> -->
                 <ul>
                   <li ng-repeat="detail in newPost.details">
-                    <p id="second-input-wrap">
-                      <input type="text" ng-model="detail.name" placeholder="type of good">
-                    </p>
-                    <p id="third-input-wrap">
-                      <input type="text" ng-model="detail.age" placeholder="must be removed by">
-                    </p>
-                    <p id="fourth-input-wrap">
-                    <input type="text" ng-model="detail.info" placeholder="info on the goods">
-                  </p>
+                    <!-- <p id="second-input-wrap"> -->
+                      <input class="searchBox" type="text" ng-model="detail.name" placeholder="type of good">
+                    <!-- </p> -->
+                    <!-- <p id="third-input-wrap"> -->
+                      <input class="searchBox" type="text" ng-model="detail.age" placeholder="must be removed by">
+                    <!-- </p> -->
+                    <!-- <p id="fourth-input-wrap"> -->
+                    <input class="searchBox" type="text" ng-model="detail.info" placeholder="info on the goods">
+                  <!-- </p> -->
                   </li class="latInput">
                   <li ng-repeat="geoindex in newPost.geoindex">
                       <small>
