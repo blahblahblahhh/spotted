@@ -51,7 +51,7 @@
       </section>
 
       <!-- concept -->
-    <section>
+    <section ng-hide="token">
       <div class="concept" id="concept" style="text-align: center;">
           <hr>
         <h1 class="insetshadow">concept</h1>
@@ -147,10 +147,13 @@
         <br>
         <h1 class="insetshadow">recently listed</h1>
           <br>
+          <button type="button" ng-show="token" ng-click="logOut()" name="button" class="logOutButton"><h1 class="insetshadow">log out</h1></button>
           <br>
+          <p ng-hide="token">
           instead of paying for waste pickup, perhaps there is someone who might be looking
           <br>
            for exactly what you're getting rid of.
+         </p>
           <br>
           <br>
         <div id="map"></div>
@@ -159,7 +162,7 @@
           <br>
 
           <h1 class="insetshadow">help save the planet & feed the hungry!</h1>
-            <div ng-show="token">
+          <div ng-show="token" class="listing">
               <h3 class="signup-info">new listing:</h3>
               <form ng-submit="createPost()" name="myForm">
                   <!-- <fieldset class="user-fieldset"> -->
@@ -211,31 +214,30 @@
       </section>
       <section ng-show="token">
       <div>
-<!--
-      {{ post.item }} <button type="button" ng-click='removePost(post)' name="button">ByBye</button>
-      <ul>
-        <li ng-repeat="detail in post.details">
-          <br>
-          {{ detail.name }}
-          <br>
-          {{ detail.age }}
-          <br>
-          {{ detail.info }}
-        </li>
-        <li ng-repeat="geoindex in post.geoindex">
-          {{ geoindex.lat }}
-          <br>
-          {{ geoindex.lon }}
-          <br>
-        </li>
-      </ul> -->
+        <!-- alt post options
+        {{ post.item }} <button type="button" ng-click='removePost(post)' name="button">remove</button>
+        <ul>
+          <li ng-repeat="detail in post.details">
+            <br>
+            {{ detail.name }}
+            <br>
+            {{ detail.age }}
+            <br>
+            {{ detail.info }}
+          </li>
+          <li ng-repeat="geoindex in post.geoindex">
+            {{ geoindex.lat }}
+            <br>
+            {{ geoindex.lon }}
+            <br>
+          </li>
+        </ul> -->
       <h1 class="insetshadow">all available goods:</h1>
       <br>
       <div class="input-container">
         <!-- <p id="first-input-wrap"> -->
         <input type="text" name="searchBox" class="searchBox" placeholder="enter search terms here" ng-model="searchQuery">
-      <!-- </p> -->
-    <!-- </fieldset> -->
+        <!-- </p> -->
     </div>
         <br>
         <div ng-repeat="post in posts | filter:searchQuery | orderBy:orderByField:reverse" class="spottedList">
@@ -252,7 +254,8 @@
               <br>
               details: {{ detail.info }}
             </li>
-            <!-- <li ng-repeat="geoindex in post.geoindex">
+            <!-- show the location lat lon if you want
+            <li ng-repeat="geoindex in post.geoindex">
               {{ geoindex.lat }}
               <br>
               {{ geoindex.lon }}
@@ -264,7 +267,6 @@
         </div>
     </div>
   </section>
-        <!-- <script src="/js/app.js" charset="utf-8"></script> -->
         <script src="/js/chart.js" charset="utf-8"></script>
   </body>
 </html>

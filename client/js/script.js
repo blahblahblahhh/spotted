@@ -98,9 +98,6 @@ $(document).ready(function() {
                         '<b>must be gone by:</b> <em>' + obj[i].details[0].age + '</em> <br>' +
                         '<b>info:</b> <em>' + obj[i].details[0].info + '</em>'
                     });
-                    // markerArray.push(marker.position);
-                    // console.log(markerArray);
-                    //console.log(marker);
 
                     // info window events
                     (function(marker, i) {

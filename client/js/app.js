@@ -11,7 +11,7 @@ angular.module('PostListing')
     // $scope.posts = [];
     $scope.newPost = {item: '', details:[{}], geoindex:[{}]};
 
-    // trying to get angular and jquery to play nice
+  // trying to get angular and jquery to play nice
   //   $scope.setFormDirty = function(){
   //   $scope.myForm.$setDirty();
   // };
@@ -90,11 +90,7 @@ angular.module('PostListing')
         console.log('... it is gone');
       })
     };
-    // angular
-    // $scope.addText = function(){
-    //   $scope.lat = $('#latField').value;
-    //   }
-
+    
     $scope.token = $cookies.get('token');
 
   }]);

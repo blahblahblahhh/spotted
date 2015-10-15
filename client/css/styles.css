@@ -28,7 +28,7 @@ h1.insetshadow {
   letter-spacing: .1em;
   text-shadow: -1px -1px 1px #111111, 2px 2px 1px #363636;
 }
-/*#goat{
+/*#neverforgetthegoat{
   position: absolute;
   top: 0;
   right: 0;
@@ -41,6 +41,11 @@ h1.insetshadow {
   margin: 0 auto;
   border-radius: 25px;
   border: 2px solid #FFA824;
+}
+
+.listing {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .spottedList {
@@ -248,6 +253,9 @@ section:nth-child(4) {
 
  @media screen and (max-width: 500px) {
 
+   .nav {
+     display: hidden;
+   }
    section h1, section p {
      height: 100%;
      margin: 0;
