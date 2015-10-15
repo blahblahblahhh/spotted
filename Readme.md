@@ -1,5 +1,5 @@
 # spotted!
-
+[View the online demo](http://spotted-waste.herokuapp.com/ "spotted").
 ![spotted!](http://i.imgur.com/PAOGPIk.png)
 
 spotted! is an app designed to aid in waste prevention. Simply use spotted! to report the location of any usable perishable items bound for trash so that those in need might obtain them before the dump does.
