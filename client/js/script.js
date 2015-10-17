@@ -55,7 +55,7 @@ $(document).on("click", ".redeemed", function(){
           location.reload(true);
 });
 
-$(document).on("click", ".submit", function(){
+$(document).on("click", "#postSubmit", function(){
           location.reload(true);
 });
 
