@@ -18,11 +18,11 @@ var foundYou = document.getElementById("findMe");
             latElement.innerHTML = coords.latitude;
             lonElement.innerHTML = coords.longitude;
             foundYou.innerHTML = 'found you!';
-            console.log(latElement.value);
-            setTimeout(getPos, 5000);
-        },function (error){
-            setTimeout(getPos, 5000);
-        }, getPositionOptions);
+            // setTimeout(getPos, 5000);
+        })
+        // ,function (error){
+        //     setTimeout(getPos, 5000);
+        // }, getPositionOptions);
         //this keeps updating their position every 5000 so if they move
         //they dont have to click the button again
     };
@@ -50,6 +50,15 @@ $("nav").find("a").click(function(e) {
 });
 
 $(document).ready(function() {
+
+$(document).on("click", ".redeemed", function(){
+          location.reload(true);
+});
+
+$(document).on("click", ".submit", function(){
+          location.reload(true);
+});
+
 
   $("#findMe").click(function(){
       alert("LOC CLICKED");

@@ -46,7 +46,7 @@
     <div class="main" ng-controller='UsersController'>
 
       <!-- welcome screen -->
-      <section class="home" id="home">
+      <section ng-hide="token" class="home" id="home">
         <h1>spotted</h1>
       </section>
 
@@ -182,19 +182,22 @@
                   <!-- </p> -->
                   </li class="latInput">
                   <li ng-repeat="geoindex in newPost.geoindex">
+                    <br>
                       <small>
                         to confirm your location and that you are a human,<br>
-                        please copy and paste your location into the appropriate fields:
+                        please copy and paste your location into the appropriate fields
                       </small>
-                      <hr>
-                      click the map to select a location
+                      <br>
+                      <br>
+                      click the map to select your location
+                      <br>
                       <br>
                       or
                       <br>
-                        <big>
+                      <br>
                           <span id="findMe">locate me!</span>
-                        </big>
-                        <br>
+                      <br>
+                      <br>
                       <p id="fifth-input-wrap" style="display: inline-block">
                       <div id="lat" class="averageListInfo" style="display: inline-block">LAT</div> > <input ng-model="geoindex.lat" type="text" placeholder="LAT HERE" name="lat">
                       </p>
@@ -204,8 +207,9 @@
                       </p>
                   </li>
                   </li>
-                </ul>
+                </ul><div class="input-container">
                 <input ng-click="addText()" type="submit" class="submit">
+              </div>
               </fieldset>
               </form>
             </div>
@@ -243,8 +247,8 @@
         <div ng-repeat="post in posts | filter:searchQuery | orderBy:orderByField:reverse" class="spottedList">
 
           <div class="allGoods">
+                       <button ng-show="token" type="button" ng-click='removePost(post)' name="button" class="redeemed">?</button>
           <h2>{{ post.item }}</h2>
-           <button type="button" ng-click='removePost(post)' name="button" class="redeemed">STILL<br><b class="small">AVAILABLE</b></button>
           <ul>
             <li ng-repeat="detail in post.details" style="display: inline-block;">
               <br>

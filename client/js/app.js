@@ -89,8 +89,9 @@ angular.module('PostListing')
       }).then(function(response){
         console.log('... it is gone');
       })
+      $route.reload();
     };
-    
+
     $scope.token = $cookies.get('token');
 
   }]);
